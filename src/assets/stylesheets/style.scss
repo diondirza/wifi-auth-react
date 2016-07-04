@@ -1,0 +1,233 @@
+main {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background: #e7e8ea url('../images/vt-tile-pattern.jpg');
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.progress-wrapper {
+    width: 100
+}
+
+.auth-container {
+    border-radius: 10px;
+    overflow: hidden;
+    .row {
+        margin: 0;
+    }
+}
+
+.auth-header-wrapper {
+    background-color: #fff;
+    height: 300px;
+    .content {
+        color: #9b9b9b;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .separator {
+            width: 115px;
+            border-top: 1px solid #d8d8d8;
+            margin: 30px auto;
+        }
+        .description {
+            font-weight: 200;
+            width: 225px;
+            margin: 0 auto;
+            .text {
+                display: inline-block;
+                white-space: normal;
+                &.success {
+                    color: #4caf50;
+                }
+                &.failed {
+                    color: #f44336;
+                }
+            }
+        }
+    }
+}
+
+.auth-form-wrapper {
+    position: relative;
+    background-color: #0baddc;
+    height: 300px;
+    .content {
+        color: #fff;
+        font-weight: 200;
+        height: 100%;
+        padding: 0 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+        &.blurred {
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+        }
+    }
+}
+
+.auth-form-wrapper .content .auth-form-wrapper .content p {
+    margin: 30px 0 0 0;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+}
+
+.auth-form-wrapper .content p a {
+    color: #fff;
+    font-weight: 400;
+}
+
+.auth-form-wrapper .content p a:hover {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.input-field label {
+    color: #cdeef7;
+    left: 0;
+}
+
+.input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label {
+    color: #cdeef7;
+    font-weight: 100;
+}
+
+.input-field input[type=text], .input-field input[type=password] {
+    height: 2.5rem;
+    font-weight: 400;
+    border-bottom: 1px solid #cdeef7;
+}
+
+.input-field input[type=password] {
+    font: small-caption;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.input-field input[type=text]:focus, .input-field input[type=password]:focus {
+    border-bottom: 1px solid #cdeef7;
+    box-shadow: 0 1px 0 0 #cdeef7;
+}
+
+.input-field input[type=text].valid, .input-field input[type=password].valid {
+    border-bottom: 1px solid #cdeef7;
+    box-shadow: 0 1px 0 0 #cdeef7;
+}
+
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #cdeef7;
+    box-shadow: 0 1px 0 0 #cdeef7;
+}
+
+.input-field .prefix.active {
+    color: #fff;
+}
+
+.btn-wrapper {
+    margin-top: 15px;
+}
+
+.btn-submit {
+    width: 100%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #cdeef7;
+    border-radius: 50px;
+    letter-spacing: 0.8px;
+}
+
+.loader {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.loader.active {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.loader .preloader-wrapper {
+    display: none;
+    margin: 0 auto;
+}
+
+.loader .preloader-wrapper.active {
+    display: block;
+}
+
+.loader .result {
+    display: none;
+    text-align: center;
+}
+
+.loader .result.active {
+    display: block;
+}
+
+.spinner-white, .spinner-white-only {
+    border-color: #cdeef7;
+}
+
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

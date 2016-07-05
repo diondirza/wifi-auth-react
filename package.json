@@ -1,5 +1,5 @@
 {
-  "name": "mid-wifi-auth",
+  "name": "wifi-auth",
   "version": "1.0.0",
   "description": "Midtrans Wi-fi Authentication page",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diondirza/mid-wifi-auth.git"
+    "url": "https://github.com/diondirza/wifi-auth-react.git"
   },
   "keywords": [
     "Midtrans",
@@ -37,9 +37,9 @@
     "npm": ">= 3"
   },
   "bugs": {
-    "url": "https://github.com/diondirza/mid-wifi-auth/issues"
+    "url": "https://github.com/diondirza/wifi-auth-react/issues"
   },
-  "homepage": "https://github.com/diondirza/mid-wifi-auth#readme",
+  "homepage": "https://github.com/diondirza/wifi-auth-react#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "jquery": "^3.0.0",

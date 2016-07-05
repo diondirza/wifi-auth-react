@@ -30,7 +30,7 @@ module.exports = merge.smart(commonConfig, {
 
   entry: {
     vendor: Object.keys(pkg.dependencies),
-    app: ['webpack-dev-server/client?http://0.0.0.0:5001', 'webpack/hot/only-dev-server', './main.browser']
+    app: ['./main.browser']
   },
 
   output: {

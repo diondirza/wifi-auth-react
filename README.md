@@ -29,6 +29,8 @@ npm run server
 # production
 npm run prod
 npm run server:prod
+#open page
+open http://localhost:5000
 ```
 
 ## Other commands

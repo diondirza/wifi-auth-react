@@ -19,64 +19,63 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 5000;
 const METADATA = webpackMerge(commonConfig.metadata, {
-    host: HOST,
-    port: PORT,
-    ENV: ENV,
-    HMR: false
+  host: HOST,
+  port: PORT,
+  ENV: ENV,
+  HMR: false
 });
 
 module.exports = webpackMerge(commonConfig, {
-    debug: false,
+  debug: false,
 
-    devtool: 'source-map',
+  devtool: 'source-map',
 
-    entry: {
-        vendor: Object.keys(pkg.dependencies),
-        app: ['./main.browser']
-    },
+  entry: {
+    vendor: Object.keys(pkg.dependencies),
+    app: ['./main.browser']
+  },
 
-    output: {
-        path: helpers.root('public'),
-        filename: 'bundle.[name].[hash:6].js',
-        sourceMapFilename: 'bundle.[name].[hash:6].map',
-        chunkFilename: 'chunk.[id].[chunkhash:6].js'
-    },
+  output: {
+    path: helpers.root('public'),
+    filename: '[name].bundle.[hash:6].js',
+    sourceMapFilename: '[name].bundle.[hash:6].map',
+    chunkFilename: 'chunk.[id].[chunkhash:6].js'
+  },
 
-    plugins: [
-        new WebpackMd5Hash(),
-        new DedupePlugin(),
-        new DefinePlugin({
-            'ENV': JSON.stringify(METADATA.ENV),
-            'HMR': METADATA.HMR,
-            'process.env': {
-                'ENV': JSON.stringify(METADATA.ENV),
-                'NODE_ENV': JSON.stringify(METADATA.ENV),
-                'HMR': METADATA.HMR
-            }
-        }),
-        new UglifyJsPlugin({
-            beautify: false,
-            mangle: {
-                screw_ie8: true,
-                keep_fnames: true
-            },
-            compress: {
-                screw_ie8: true
-            },
-            comments: false
-        }),
-        new CompressionPlugin({
-            regExp: /\.css$|\.html$|\.js$|\.map$/,
-            threshold: 2 * 1024
-        })
-    ],
+  plugins: [
+    new WebpackMd5Hash(),
+    new DedupePlugin(),
+    new DefinePlugin({
+      'ENV': JSON.stringify(METADATA.ENV),
+      'HMR': METADATA.HMR,
+      'process.env': {
+        'ENV': JSON.stringify(METADATA.ENV),
+        'NODE_ENV': JSON.stringify(METADATA.ENV),
+        'HMR': METADATA.HMR
+      }
+    }),
+    new UglifyJsPlugin({
+      beautify: false,
+      mangle: {
+        screw_ie8: true
+      },
+      compress: {
+        screw_ie8: true
+      },
+      comments: false
+    }),
+    new CompressionPlugin({
+      regExp: /\.css$|\.html$|\.js$|\.map$/,
+      threshold: 2 * 1024
+    })
+  ],
 
-    node: {
-        global: 'window',
-        crypto: 'empty',
-        process: false,
-        module: false,
-        clearImmediate: false,
-        setImmediate: false
-    }
+  node: {
+    global: 'window',
+    crypto: 'empty',
+    process: false,
+    module: false,
+    clearImmediate: false,
+    setImmediate: false
+  }
 });

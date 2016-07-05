@@ -1,5 +1,5 @@
 # Midtrans Wi-fi Authentication
-This is website for authenticating wi-fi connection on Midtrans office
+This is react version of website for authenticating WiFi connection on Midtrans office
 
 # Getting Started
 ## Dependencies
@@ -25,7 +25,6 @@ After you have installed all dependencies you can now run the app. Run `npm star
 ### server
 ```bash
 # development
-npm run dev
 npm run server
 # production
 npm run prod

@@ -16,7 +16,7 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = merge(commonConfig.metadata, {
   host: 'localhost',
-  port: 3000,
+  port: 5000,
   ENV: ENV,
   HMR: HMR
 });
@@ -63,25 +63,16 @@ module.exports = merge.smart(commonConfig, {
     new webpack.HotModuleReplacementPlugin()
   ],
 
-  /**
-   * Webpack Development Server configuration
-   * Description: The webpack-dev-server is a little node.js Express server.
-   * The server emits information about the compilation state to the client,
-   * which reacts to those events.
-   *
-   * See: https://webpack.github.io/docs/webpack-dev-server.html
-   *
-   * devServer: {
-   *     port: METADATA.port,
-   *     host: METADATA.host,
-   *     historyApiFallback: true,
-   *     watchOptions: {
-   *         aggregateTimeout: 300,
-   *         poll: 1000
-   *     },
-   *     outputPath: helpers.root('dist')
-   * },
-   */
+  devServer: {
+    port: METADATA.port,
+    host: METADATA.host,
+    historyApiFallback: true,
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    },
+    outputPath: helpers.root('public')
+  },
 
   node: {
     global: 'window',

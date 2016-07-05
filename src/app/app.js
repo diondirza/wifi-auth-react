@@ -1,20 +1,39 @@
+import $ from 'jquery';
 import React, {Component} from 'react';
 import Header from './home/header';
 import Form from './home/form';
 
-class App extends Component {
-  state = {
-    submit: false,
-    result: 'success'
-  };
+const initState = {
+  submit: false,
+  result: ''
+};
 
+class App extends Component {
+  state = initState;
 
   onSubmit = () => {
-    let submit = true;
-
     this.setState({
-      submit: submit
+      submit: true
     });
+
+    setTimeout(() =>{
+      this.onSuccess();
+    },3000);
+  }
+
+  onSuccess = () => {
+    this.setState({
+        result: 'success'
+    });
+  }
+
+  onFailed = () => {
+    this.setState({
+        result: 'failed'
+    });
+    setTimeout(()=>{
+      this.setState(initState);
+    },1000);
   }
 
   render() {
@@ -29,7 +48,7 @@ class App extends Component {
                 </div>
 
                 <div className="col s12 l6 auth-form-wrapper">
-                  <Form onSubmit={this.onSubmit}></Form>
+                  <Form {...this.state} onSubmit={this.onSubmit}></Form>
                 </div>
               </div>
             </div>

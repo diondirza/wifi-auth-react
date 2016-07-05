@@ -66,32 +66,29 @@ main {
         flex-direction: column;
         justify-content: center;
         z-index: 1;
-        &.blurred {
+        .blurred {
             -webkit-filter: blur(2px);
             -moz-filter: blur(2px);
             -o-filter: blur(2px);
             -ms-filter: blur(2px);
             filter: blur(2px);
         }
+        p {
+            margin: 30px 0 0 0;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            a {
+                color: #fff;
+                font-weight: 400;
+                &:hover {
+                    color: #fff;
+                    text-decoration: none;
+                    font-weight: 700;
+                }
+            }
+        }
     }
-}
-
-.auth-form-wrapper .content .auth-form-wrapper .content p {
-    margin: 30px 0 0 0;
-    font-size: 12px;
-    text-align: center;
-    color: #fff;
-}
-
-.auth-form-wrapper .content p a {
-    color: #fff;
-    font-weight: 400;
-}
-
-.auth-form-wrapper .content p a:hover {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
 }
 
 .input-field label {
@@ -157,32 +154,27 @@ main {
     left: 0;
     height: 100%;
     width: 100%;
-}
-
-.loader.active {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.loader .preloader-wrapper {
-    display: none;
-    margin: 0 auto;
-}
-
-.loader .preloader-wrapper.active {
-    display: block;
-}
-
-.loader .result {
-    display: none;
-    text-align: center;
-}
-
-.loader .result.active {
-    display: block;
+    &.active {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        z-index: 2;
+    }
+    .preloader-wrapper {
+        display: none;
+        margin: 0 auto;
+        &.active {
+            display: block;
+        }
+    }
+    .result {
+        display: none;
+        text-align: center;
+        &.active {
+            display: block;
+        }
+    }
 }
 
 .spinner-white, .spinner-white-only {

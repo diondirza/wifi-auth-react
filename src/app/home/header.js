@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import 'typed.js/js/typed';
 
 class Header extends Component {
   static propTypes = {
@@ -9,22 +8,38 @@ class Header extends Component {
   }
 
   componentDidUpdate() {
-    console.log('after render');
-    $('.description .text').typed({
-      strings: ['Login successfully.']
-    });
+    const {text} = this.refs;
+    const {submit, result} = this.props;
+    const submitMsgs = {
+      '': 'Loading .^1000.^1000.',
+      'success': 'Login successfully.',
+      'failed': 'Login failed.'
+    };
+
+    $(text).next().remove();
+
+    if (submit) {
+      $(text).removeData('typed');
+      $(text).typed({
+        strings: [submitMsgs[result]]
+      });
+    }
   }
 
   render() {
+    const {submit, result} = this.props;
     let textClass = classnames({
       'text': true,
-      'success': this.props.submit && this.props.result === 'success',
-      'failed': this.props.submit && this.props.result === 'failed'
+      'success': submit && result === 'success',
+      'failed': submit && result === 'failed'
     });
-    let description = this.props.submit && this.props.result !== ''
-      ? (<span className={textClass}></span>)
-      : (<span className="text">Please enter your username and password to continue</span>);
+    let description = (
+      <span ref="text" className="text">Please enter your username and password to continue</span>
+    );
 
+    if(submit && result !== '') {
+       description = (<span ref="text" className={textClass}></span>);
+    }
     return (
       <div className="content">
         <img className="responsive-img" alt="midtrans-logo" src="/assets/images/logo-midtrans-color.png" />

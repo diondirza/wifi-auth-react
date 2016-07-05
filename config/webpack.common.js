@@ -22,7 +22,8 @@ module.exports = {
     root: helpers.root('src'),
     modulesDirectories: ['node_modules'],
     alias: {
-      jquery: 'jquery/src/jquery'
+      'jquery': 'jquery/src/jquery.js',
+      'typed.js': 'typed.js/js/typed.js'
     }
   },
 
@@ -59,16 +60,14 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
     new CopyWebpackPlugin([
-      { from: 'assets/images/logo-midtrans-color.png', to: 'assets/images' }
+      { from: 'assets/images/logo-midtrans-color.png', to: 'assets/images' },
+      { from: 'assets/images/success.png', to: 'assets/images' },
+      { from: 'assets/images/failed.png', to: 'assets/images' },
     ]),
     new HtmlWebpackPlugin({
       template: './index.html',

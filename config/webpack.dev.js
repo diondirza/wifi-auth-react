@@ -35,7 +35,7 @@ module.exports = merge.smart(commonConfig, {
 
   output: {
     path: helpers.root('public'),
-    filename: 'bundle.[name].js',
+    filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
     chunkFilename: 'chunk.[id].js'
   },

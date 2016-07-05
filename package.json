@@ -5,8 +5,10 @@
   "scripts": {
     "start": "./node_modules/.bin/babel-node ./server.js",
     "clean": "rimraf ./public",
+    "server": "NODE_ENV=development npm start",
+    "server:prod": "NODE_ENV=production npm start",
     "dev": "npm run build:dev",
-    "dev-watch": "npm run build:watch",
+    "watch": "npm run build:watch",
     "prod": "npm run clean && npm run build:prod",
     "build": "npm run build:dev",
     "prebuild:dev": "npm run clean",

@@ -31,7 +31,15 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
 
   entry: {
-    vendor: Object.keys(pkg.dependencies),
+    vendor: [
+      'jquery',
+      'materialize-css',
+      'react',
+      'react-dom',
+      'react-router',
+      'classnames',
+      'typed.js'
+    ],
     app: ['./main.browser']
   },
 

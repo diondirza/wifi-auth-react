@@ -29,7 +29,15 @@ module.exports = merge.smart(commonConfig, {
   devtool: 'cheap-module-source-map',
 
   entry: {
-    vendor: Object.keys(pkg.dependencies),
+    vendor: [
+      'jquery',
+      'materialize-css',
+      'react',
+      'react-dom',
+      'react-router',
+      'classnames',
+      'typed.js'
+    ],
     app: ['./main.browser']
   },
 

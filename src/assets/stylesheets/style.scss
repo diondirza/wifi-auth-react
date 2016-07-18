@@ -96,12 +96,14 @@ main {
     left: 0;
 }
 
-.input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label {
+.input-field input[type=text]:focus+ label,
+.input-field input[type=password]:focus+ label {
     color: #cdeef7;
     font-weight: 100;
 }
 
-.input-field input[type=text], .input-field input[type=password] {
+.input-field input[type=text],
+.input-field input[type=password] {
     height: 2.5rem;
     font-weight: 400;
     border-bottom: 1px solid #cdeef7;
@@ -113,12 +115,14 @@ main {
     letter-spacing: 1px;
 }
 
-.input-field input[type=text]:focus, .input-field input[type=password]:focus {
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus {
     border-bottom: 1px solid #cdeef7;
     box-shadow: 0 1px 0 0 #cdeef7;
 }
 
-.input-field input[type=text].valid, .input-field input[type=password].valid {
+.input-field input[type=text].valid,
+.input-field input[type=password].valid {
     border-bottom: 1px solid #cdeef7;
     box-shadow: 0 1px 0 0 #cdeef7;
 }
@@ -145,6 +149,9 @@ main {
     border: 1px solid #cdeef7;
     border-radius: 50px;
     letter-spacing: 0.8px;
+    &:focus {
+        background: none;
+    }
 }
 
 .loader {
@@ -177,7 +184,8 @@ main {
     }
 }
 
-.spinner-white, .spinner-white-only {
+.spinner-white,
+.spinner-white-only {
     border-color: #cdeef7;
 }
 

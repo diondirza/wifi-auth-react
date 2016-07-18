@@ -11,29 +11,42 @@ const initState = {
 class App extends Component {
   state = initState;
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    let self = this;
+    e.preventDefault();
+
     this.setState({
       submit: true
     });
 
-    setTimeout(() =>{
-      this.onSuccess();
-    },3000);
+    const form = this.refs.formComponent.refs.form;
+    const $form = $(form);
+    const url = $form.data('url');
+
+    $.post(url, $form.serialize(), function() {
+      self.onSuccess();
+    }).fail(function() {
+      self.onFailed();
+    });
   }
 
   onSuccess = () => {
-    this.setState({
+    setTimeout(() => {
+      this.setState({
         result: 'success'
-    });
+      });
+    }, 3000);
   }
 
   onFailed = () => {
-    this.setState({
+    setTimeout(() => {
+      this.setState({
         result: 'failed'
-    });
-    setTimeout(()=>{
-      this.setState(initState);
-    },1000);
+      });
+      setTimeout(() => {
+        this.setState(initState);
+      }, 1000);
+    }, 3000);
   }
 
   render() {
@@ -48,7 +61,7 @@ class App extends Component {
                 </div>
 
                 <div className="col s12 l6 auth-form-wrapper">
-                  <Form {...this.state} onSubmit={this.onSubmit}></Form>
+                  <Form ref="formComponent" {...this.state} onSubmit={this.onSubmit}></Form>
                 </div>
               </div>
             </div>

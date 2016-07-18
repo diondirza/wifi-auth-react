@@ -30,19 +30,21 @@ class Form extends Component {
 
     return (
       <div className="content">
-        <form className={formClass}>
+        <form ref="form" action="%%AUTH_POST_URL%%" className={formClass} onSubmit={(e) => this.props.onSubmit(e)}>
+          <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%" />
+          <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%" />
           <div className="input-field">
-            <input id="username" type="text" className="validate" autoComplete="off"/>
+            <input id="username" ref="username" name="%%USERNAMEID%%" type="text" className="validate" autoComplete="off"/>
             <label htmlFor="username">Username</label>
           </div>
 
           <div className="input-field">
-            <input id="password" type="password" className="validate" />
+            <input id="password" ref="password" name="%%PASSWORDID%%" type="password" className="validate" />
             <label htmlFor="password">Password</label>
           </div>
 
           <div className="btn-wrapper">
-            <a className="waves-effect waves-light btn-flat btn-submit" onClick={this.props.onSubmit}>Continue</a>
+            <button type="submit" className="waves-effect waves-light btn-flat btn-submit">Continue</button>
           </div>
           <p>
             Don't have an account? <a href="#">Get one &#10095;</a>

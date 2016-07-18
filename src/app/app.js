@@ -21,7 +21,7 @@ class App extends Component {
 
     const form = this.refs.formComponent.refs.form;
     const $form = $(form);
-    const url = $form.data('url');
+    const url = $form.prop('action');
 
     $.post(url, $form.serialize(), function() {
       self.onSuccess();

@@ -37,9 +37,9 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: helpers.root('public'),
-    filename: '[name].bundle.[hash:6].js',
-    sourceMapFilename: '[name].bundle.[hash:6].map',
-    chunkFilename: 'chunk.[id].[chunkhash:6].js'
+    filename: 'assets/scripts/[name].bundle.[hash:6].js',
+    sourceMapFilename: 'assets/scripts/[name].bundle.[hash:6].map',
+    chunkFilename: 'assets/scripts/chunk.[id].[chunkhash:6].js'
   },
 
   plugins: [

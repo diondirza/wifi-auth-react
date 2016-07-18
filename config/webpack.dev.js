@@ -35,9 +35,11 @@ module.exports = merge.smart(commonConfig, {
 
   output: {
     path: helpers.root('public'),
-    filename: '[name].bundle.js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: 'chunk.[id].js'
+    filename: 'assets/scripts/[name].bundle.js',
+    sourceMapFilename: 'assets/scripts/[name].map',
+    chunkFilename: 'assets/scripts/chunk.[id].js',
+    hotUpdateChunkFilename: 'hot/[id].[hash].hot-update.js',
+    hotUpdateMainFilename: 'hot/[hash].hot-update.json'
   },
 
   module: {
@@ -60,7 +62,8 @@ module.exports = merge.smart(commonConfig, {
         'HMR': METADATA.HMR
       }
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
 
   devServer: {

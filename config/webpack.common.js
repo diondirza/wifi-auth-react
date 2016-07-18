@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.s?(c)ss$/,
-        loader: ExtractTextWebpackPlugin.extract('style', 'css!postcss!sass')
+        loader: 'style!css!postcss!sass'
       },
       {
         test: /\.(ttf|png|jpe?g|eot|woff2?)$/,
@@ -75,8 +75,7 @@ module.exports = {
         'vendor',
         'app'
       ])
-    }),
-    new ExtractTextWebpackPlugin('assets/stylesheets/style.css', { allChunks: true })
+    })
   ],
 
   postcss: [autoprefixer],
